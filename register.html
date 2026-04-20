@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="register">
+    <main class="page-shell">
+        <div class="container narrow">
+            <p class="eyebrow">Student Access</p>
+            <h2>Create Account</h2>
+            <form id="registerForm" onsubmit="return registerUser(event)">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="text" id="regUsername" name="username" placeholder="Username" required>
+                <input type="password" id="regPassword" name="password" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div id="registerMessage" class="status-message"></div>
+            <p class="helper-text">Already registered? <a href="login.html">Go to login</a></p>
+            <p class="helper-text"><a href="index.html">Back to home</a></p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

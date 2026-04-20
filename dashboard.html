@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard">
+    <main class="dashboard-shell">
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Student Dashboard</p>
+                <h2 id="dashboardWelcome">Welcome</h2>
+                <p class="muted">Choose a test and track your previous marks below.</p>
+            </div>
+            <div class="topbar-actions">
+                <a href="report.html" class="btn">View Report</a>
+                <button type="button" class="btn btn-secondary" onclick="resetDemoData()">Reset Data</button>
+                <button type="button" class="btn btn-dark" onclick="logoutUser()">Logout</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div id="userStats" class="stat-grid"></div>
+        </section>
+
+        <section class="panel">
+            <h3>Available Tests</h3>
+            <div id="testsContainer" class="card-grid"></div>
+        </section>
+
+        <section class="panel">
+            <h3>Previous Tests and Marks</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Score</th>
+                            <th>Percentage</th>
+                            <th>Date</th>
+                            <th>Answer Key</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attemptsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Leaderboard</h3>
+                <select id="userLeaderboardFilter" onchange="renderLeaderboard('userLeaderboardBody', loadData(), this.value)"></select>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Student</th>
+                            <th>Score</th>
+                            <th>Attempts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userLeaderboardBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

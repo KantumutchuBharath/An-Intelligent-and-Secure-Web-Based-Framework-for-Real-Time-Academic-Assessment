@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="report">
+    <main class="dashboard-shell">
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Performance Report</p>
+                <h2 id="reportWelcome">Your Quiz Analytics</h2>
+                <p id="reportSubtitle" class="muted">Detailed progress across all quiz attempts.</p>
+            </div>
+            <div class="topbar-actions">
+                <a href="dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div id="reportStats" class="stat-grid"></div>
+        </section>
+
+        <section id="reportCharts" class="report-grid"></section>
+
+        <section class="panel">
+            <h3>Insights</h3>
+            <div id="reportInsights" class="insight-list"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

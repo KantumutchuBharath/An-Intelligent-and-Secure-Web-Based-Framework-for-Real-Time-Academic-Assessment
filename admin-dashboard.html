@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin-dashboard">
+    <main class="dashboard-shell">
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Administration</p>
+                <h2 id="adminWelcome">Welcome</h2>
+                <p class="muted">Manage tests, update questions, and review top performers.</p>
+            </div>
+            <div class="topbar-actions">
+                <a href="admin-users.html" class="btn">Users Report</a>
+                <button type="button" class="btn btn-secondary" onclick="resetDemoData()">Reset Data</button>
+                <button type="button" class="btn btn-dark" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div id="adminStats" class="stat-grid"></div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Leaderboard</h3>
+                <select id="adminLeaderboardFilter" onchange="renderLeaderboard('leaderboardBody', loadData(), this.value)"></select>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Student</th>
+                            <th>Score</th>
+                            <th>Attempts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Student Progress</h3>
+                <select id="progressTestFilter" onchange="renderAdminProgress(loadData(), this.value)"></select>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Student</th>
+                            <th>Attempts</th>
+                            <th>Best Score</th>
+                            <th>Latest Attempt</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentProgressBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel two-column">
+            <div>
+                <h3>Existing Tests</h3>
+                <div id="adminTestList" class="card-stack"></div>
+            </div>
+
+            <div>
+                <h3>Create or Edit Test</h3>
+                <form id="testForm" onsubmit="return saveTest(event)">
+                    <input type="hidden" id="testId">
+                    <label for="testSelect">Choose a test to edit</label>
+                    <select id="testSelect" onchange="loadTestIntoEditor()"></select>
+                    <input type="text" id="testTitle" placeholder="Test title" required>
+                    <input type="text" id="testCategory" placeholder="Test category or subject (e.g. Java, Aptitude)" required>
+                    <textarea id="testDescription" placeholder="Short description" rows="3" required></textarea>
+                    <input type="number" id="testDuration" min="1" placeholder="Test duration in minutes" required>
+                    <input type="number" id="testAttempts" min="1" placeholder="Max attempts per user" required>
+                    <input type="number" id="testExpiryMinutes" min="0" placeholder="Expire after this many minutes from now (optional)">
+                    <div class="panel-header compact-header">
+                        <label for="questionBuilder">Questions</label>
+                        <button type="button" class="btn btn-secondary btn-small" onclick="addQuestionEditor()">Add Question</button>
+                    </div>
+                    <div id="questionBuilder" class="question-builder"></div>
+                    <div id="adminTestMessage" class="status-message"></div>
+                    <button type="submit" class="btn">Save Test</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteTest()">Delete Test</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

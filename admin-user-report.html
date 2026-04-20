@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin-user-report">
+    <main class="dashboard-shell">
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Read-Only User Report</p>
+                <h2 id="reportWelcome">User Report</h2>
+                <p id="reportSubtitle" class="muted">Only viewing is allowed on this page.</p>
+            </div>
+            <div class="topbar-actions">
+                <a href="admin-users.html" class="btn btn-secondary">Back to Users</a>
+                <a href="admin-dashboard.html" class="btn btn-dark">Admin Dashboard</a>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div id="reportStats" class="stat-grid"></div>
+        </section>
+
+        <section id="reportCharts" class="report-grid"></section>
+
+        <section class="panel">
+            <h3>Insights</h3>
+            <div id="reportInsights" class="insight-list"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

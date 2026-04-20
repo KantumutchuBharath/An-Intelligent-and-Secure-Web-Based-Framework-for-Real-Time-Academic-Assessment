@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin-users">
+    <main class="dashboard-shell">
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Users Report</p>
+                <h2>Student Reports</h2>
+                <p class="muted">Search for a student and open their report in read-only mode.</p>
+            </div>
+            <div class="topbar-actions">
+                <a href="admin-dashboard.html" class="btn btn-secondary">Back to Admin</a>
+                <button type="button" class="btn btn-dark" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <label for="adminUserSearch">Search users</label>
+            <input type="search" id="adminUserSearch" placeholder="Search by name or username">
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h3>All Users</h3>
+                <p id="adminUsersCount" class="muted">0 users</p>
+            </div>
+            <div id="adminUsersList" class="card-grid"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

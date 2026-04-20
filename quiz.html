@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="quiz">
+    <main class="dashboard-shell">
+        <div id="warningBanner" class="warning-banner"></div>
+        <section class="topbar">
+            <div>
+                <p class="eyebrow">Quiz In Progress</p>
+                <h2 id="quizTitle">Quiz</h2>
+                <p id="quizDescription" class="muted"></p>
+                <p id="quizMeta" class="muted"></p>
+            </div>
+            <div class="topbar-actions">
+                <div class="timer-panel">
+                    <span class="timer-label">Time Left</span>
+                    <strong id="quizTimer">00:00</strong>
+                    <span id="quizTimerNote" class="muted"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel quiz-layout">
+            <div class="quiz-main">
+                <div class="question-stage">
+                    <div class="panel-header">
+                        <h3 id="questionCounter">Question 1</h3>
+                    </div>
+                    <form id="quizForm" onsubmit="return submitQuiz(event)"></form>
+                    <div id="questionActions" class="question-actions"></div>
+                </div>
+            </div>
+            <aside class="quiz-sidebar">
+                <div class="quiz-sidebar-head">
+                    <h3>Question Map</h3>
+                    <p class="muted">White: not visited, Orange: pending, Green: completed</p>
+                </div>
+                <div id="questionNavigation" class="question-nav"></div>
+            </aside>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
